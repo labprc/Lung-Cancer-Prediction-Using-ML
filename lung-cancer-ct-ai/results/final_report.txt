@@ -1,0 +1,56 @@
+
+MODEL USED:
+EfficientNetB0 (Transfer Learning with 2-Phase Fine Tuning)
+
+DATASET:
+Total Images: 1226
+TRAIN: 862
+VALIDATION: 182
+TEST: 182
+
+5-CLASS ACCURACY:
+81.87%
+
+MACRO F1:
+78.91%
+
+WEIGHTED F1:
+82.62%
+
+MALIGNANT VS NON-MALIGNANT (cancer vs no cancer):
+Accuracy: 99.45%
+Sensitivity: 98.92%
+Specificity: 100.00%
+Precision: 100.00%
+F1: 99.46%
+
+CLASS-WISE RESULTS:
+
+Benign cases:
+Precision: 50.00%
+Recall: 85.71%
+F1: 63.16%
+
+Normal cases:
+Precision: 95.45%
+Recall: 84.00%
+F1: 89.36%
+
+adenocarcinoma:
+Precision: 85.29%
+Recall: 72.50%
+F1: 78.38%
+
+large cell carcinoma:
+Precision: 100.00%
+Recall: 72.73%
+F1: 84.21%
+
+squamous cell carcinoma:
+Precision: 69.05%
+Recall: 93.55%
+F1: 79.45%
+
+BEST MODEL: Saved to results/best_model.keras
+TRAINING EPOCHS ACTUALLY USED: 5 (Phase 1) + 15 (Phase 2)
+IMPORTANT WEAKNESSES: Model struggles slightly with Large Cell Carcinoma due to lack of distinct training samples despite class weighting. More data is needed for robust minority class detection.

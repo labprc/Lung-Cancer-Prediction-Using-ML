@@ -1,0 +1,26 @@
+{
+    "model_name": "Custom CNN",
+    "image_size": [
+        224,
+        224
+    ],
+    "num_classes": 5,
+    "class_names": [
+        "Benign cases",
+        "Normal cases",
+        "adenocarcinoma",
+        "large cell carcinoma",
+        "squamous cell carcinoma"
+    ],
+    "training_time": "2026-09-02 21:26:13",
+    "epochs_run": 6,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "test_metrics": {
+        "accuracy": 0.5922330097087378,
+        "precision": 0.3621879021879022,
+        "recall": 0.39696618805002315,
+        "f1_score": 0.34643054629202086,
+        "roc_auc": 0.8121830774067451
+    }
+}

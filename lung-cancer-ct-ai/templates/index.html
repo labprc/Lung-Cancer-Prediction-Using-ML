@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>LungCare AI — Lung CT Classification System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="#home"><i class="fa-solid fa-lungs"></i> LungCare AI</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"       class="nav-item active">Home</a></li>
+      <li><a href="#about"      class="nav-item">About</a></li>
+      <li><a href="#prediction" class="nav-item">Prediction</a></li>
+      <li><a href="#analytics"  class="nav-item">Analytics</a></li>
+      <li><a href="#contact"    class="nav-item">Contact</a></li>
+      <li><a href="#prediction" class="nav-item nav-cta">Start Analysis</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="home" class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+
+    <!-- Left: Text -->
+    <div class="hero-text">
+      <span class="hero-badge"><i class="fas fa-circle-dot"></i>&nbsp; CNN-Powered Detection System</span>
+      <h1>Lung Cancer<br/><span class="highlight">CT Classification</span><br/>Made Precise</h1>
+      <p>Advanced Convolutional Neural Network (EfficientNetB0) trained on real CT scans for 5-class lung cancer detection with Grad-CAM visual explainability and comprehensive PDF reporting.</p>
+      <div class="hero-btns">
+        <a href="#prediction" class="btn btn-primary"><i class="fas fa-microscope"></i> Start Free Analysis</a>
+        <a href="#about"      class="btn btn-outline"><i class="fas fa-play-circle"></i> How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">81.87%</span><span class="stat-label">CNN Accuracy</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">Cancer Classes</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">1,226</span><span class="stat-label">Training Scans</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">99.45%</span><span class="stat-label">Binary Acc.</span></div>
+      </div>
+    </div>
+
+    <!-- Right: Visual card -->
+    <div class="hero-visual">
+      <div class="scan-card">
+        <div class="scan-card-header"><i class="fas fa-lungs-virus"></i> CT Scan Analysis Engine</div>
+        <div class="scan-preview">
+          <i class="fas fa-x-ray fa-4x"></i>
+        </div>
+        <div class="scan-metrics">
+          <div class="metric"><span class="metric-label">Model</span><span class="metric-val">EfficientNetB0</span></div>
+          <div class="metric"><span class="metric-label">Status</span><span class="metric-val green"><i class="fas fa-circle" style="font-size:.5rem"></i> Ready</span></div>
+          <div class="metric"><span class="metric-label">Classes</span><span class="metric-val">5 Types</span></div>
+        </div>
+        <div class="floating-pill p1"><i class="fas fa-shield-heart"></i> Real-time Analysis</div>
+        <div class="floating-pill p2"><i class="fas fa-brain"></i> CNN Technology</div>
+        <div class="floating-pill p3"><i class="fas fa-chart-line"></i> Grad-CAM XAI</div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-down"><i class="fas fa-chevron-down"></i></a>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">About the System</span>
+      <h2>Why Choose LungCare AI?</h2>
+      <p>Cutting-edge machine learning meets clinical imaging expertise — built for a BE Final Year Project.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon blue"><i class="fas fa-network-wired"></i></div>
+        <h3>EfficientNetB0 CNN</h3>
+        <p>Trained on 1,226 real lung CT images using 2-phase fine-tuning with class-weight balancing to handle minority classes accurately.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon teal"><i class="fas fa-eye"></i></div>
+        <h3>Grad-CAM Explainability</h3>
+        <p>See exactly which regions of your CT scan influenced the model's decision using gradient-weighted class activation mapping.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon red"><i class="fas fa-file-medical-alt"></i></div>
+        <h3>Professional PDF Reports</h3>
+        <p>Download a comprehensive 1-page hospital-style report with patient details, CT images, Grad-CAM, and probability distributions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon orange"><i class="fas fa-shield-virus"></i></div>
+        <h3>5-Class Classification</h3>
+        <p>Detects Normal, Benign, Adenocarcinoma, Large Cell, and Squamous Cell Carcinoma with confidence scoring and UNCERTAIN flag.</p>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="how-it-works">
+      <h2 class="text-center">How It Works</h2>
+      <p class="text-center sub">A simple 3-step process to assess lung CT scan risk</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-circle"><span class="step-num">1</span><i class="fas fa-upload"></i></div>
+          <h4>Upload CT Scan</h4>
+          <p>Fill in patient details and upload a lung CT scan image (JPG/PNG) securely.</p>
+        </div>
+        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="step">
+          <div class="step-circle"><span class="step-num">2</span><i class="fas fa-gears"></i></div>
+          <h4>CNN Analysis</h4>
+          <p>Our EfficientNetB0 model processes the image and generates Grad-CAM visualizations.</p>
+        </div>
+        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="step">
+          <div class="step-circle"><span class="step-num">3</span><i class="fas fa-chart-pie"></i></div>
+          <h4>Get Results</h4>
+          <p>View the prediction, probability chart, Grad-CAM overlay, and download a PDF report.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Classification Classes -->
+    <div class="classes-section">
+      <h2 class="text-center">Classification Classes</h2>
+      <p class="text-center sub">Understanding what the CNN model detects</p>
+      <div class="classes-grid">
+        <div class="class-card non-mal">
+          <div class="class-icon"><i class="fas fa-check-circle"></i></div>
+          <h4>Normal</h4>
+          <p>No cancer detected. CT scan appears within normal clinical parameters.</p>
+          <span class="class-badge safe">Non-Malignant</span>
+        </div>
+        <div class="class-card non-mal">
+          <div class="class-icon"><i class="fas fa-circle-dot"></i></div>
+          <h4>Benign</h4>
+          <p>Abnormal tissue is present but non-cancerous in nature.</p>
+          <span class="class-badge safe">Non-Malignant</span>
+        </div>
+        <div class="class-card mal">
+          <div class="class-icon"><i class="fas fa-triangle-exclamation"></i></div>
+          <h4>Adenocarcinoma</h4>
+          <p>Most common lung cancer type. Originates in peripheral lung tissue.</p>
+          <span class="class-badge danger">Malignant</span>
+        </div>
+        <div class="class-card mal">
+          <div class="class-icon"><i class="fas fa-triangle-exclamation"></i></div>
+          <h4>Large Cell Carcinoma</h4>
+          <p>Aggressive, fast-growing tumor that can appear in any lung region.</p>
+          <span class="class-badge danger">Malignant</span>
+        </div>
+        <div class="class-card mal">
+          <div class="class-icon"><i class="fas fa-triangle-exclamation"></i></div>
+          <h4>Squamous Cell</h4>
+          <p>Arises in the flat cells lining the airways; often linked to smoking.</p>
+          <span class="class-badge danger">Malignant</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PREDICTION ═══════════ -->
+<section id="prediction" class="section pred-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">AI Analysis</span>
+      <h2>Patient Information &amp; CT Upload</h2>
+      <p>Fill in the patient's clinical details and upload a lung CT scan image to run the CNN prediction.</p>
+    </div>
+
+    <div class="pred-layout">
+      <!-- LEFT: Form -->
+      <div class="form-panel">
+        <form id="predForm" enctype="multipart/form-data">
+
+          <div class="form-section-title"><i class="fas fa-user-circle"></i> Demographics</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-id-card"></i> Full Name</label>
+              <input type="text" name="name" placeholder="Patient name (optional)"/>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-cake-candles"></i> Age</label>
+              <input type="number" name="age" placeholder="Age in years" min="1" max="120"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-venus-mars"></i> Gender</label>
+              <select name="gender">
+                <option value="">Select Gender</option>
+                <option>Male</option><option>Female</option><option>Prefer not to say</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-briefcase"></i> Occupation</label>
+              <input type="text" name="occupation" placeholder="e.g. Miner, Teacher…"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-location-dot"></i> City / Region</label>
+              <input type="text" name="city" placeholder="e.g. Mumbai, Delhi…"/>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-calendar"></i> Date of Birth</label>
+              <input type="date" name="dob"/>
+            </div>
+          </div>
+
+          <div class="form-section-title"><i class="fas fa-smoking"></i> Lifestyle &amp; Exposure</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-cigarette"></i> Pack Years</label>
+              <input type="number" name="pack_years" placeholder="Packs/day × Years" step="0.5" min="0"/>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-wind"></i> Radon Exposure</label>
+              <select name="radon">
+                <option value="">Select Level</option>
+                <option>None</option><option>Low</option><option>Moderate</option><option>High</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-industry"></i> Asbestos Exposure</label>
+              <select name="asbestos">
+                <option value="">Select Option</option>
+                <option>None</option><option>Low</option><option>Moderate</option><option>High</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-person-smoking"></i> Secondhand Smoke</label>
+              <select name="secondhand">
+                <option value="">Select Option</option>
+                <option>None</option><option>Occasional</option><option>Frequent</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-wine-glass"></i> Alcohol Intake</label>
+              <select name="alcohol">
+                <option value="">Select Level</option>
+                <option>None</option><option>Light</option><option>Moderate</option><option>Heavy</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-dna"></i> Family History</label>
+              <select name="family_hx">
+                <option value="">Select Option</option>
+                <option>No</option><option>Yes — First Degree</option><option>Yes — Second Degree</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section-title"><i class="fas fa-stethoscope"></i> Medical History</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-lungs-virus"></i> COPD Diagnosis</label>
+              <select name="copd">
+                <option value="">Select Option</option>
+                <option>No</option><option>Yes — Mild</option><option>Yes — Moderate</option><option>Yes — Severe</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-notes-medical"></i> Previous Lung Conditions</label>
+              <select name="prev_conditions">
+                <option value="">Select Option</option>
+                <option>None</option><option>Tuberculosis</option><option>Pneumonia</option><option>Asthma</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-syringe"></i> Prior Chemotherapy</label>
+              <select name="chemo">
+                <option value="">Select Option</option>
+                <option>No</option><option>Yes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-radiation"></i> Prior Radiation Therapy</label>
+              <select name="radiation">
+                <option value="">Select Option</option>
+                <option>No</option><option>Yes</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-section-title"><i class="fas fa-image"></i> CT Scan Upload</div>
+          <div class="upload-area" id="uploadArea">
+            <input type="file" id="ctFile" name="image" accept="image/*" hidden/>
+            <div class="upload-icon"><i class="fas fa-cloud-arrow-up fa-3x"></i></div>
+            <p class="upload-text">Drag &amp; drop your CT scan here</p>
+            <p class="upload-sub">or click to browse &mdash; JPG, PNG supported</p>
+            <div id="uploadPreviewWrap" style="display:none">
+              <img id="uploadPreview" alt="CT Preview"/>
+              <span id="uploadFileName"></span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="analyzeBtn">
+            <i class="fas fa-microscope"></i> Run AI Analysis
+          </button>
+        </form>
+      </div>
+
+      <!-- RIGHT: Results -->
+      <div class="results-panel" id="resultsPanel">
+        <div class="results-placeholder" id="resultsPlaceholder">
+          <i class="fas fa-x-ray fa-4x"></i>
+          <h3>Awaiting CT Scan</h3>
+          <p>Fill the form, upload a CT scan image, and click "Run AI Analysis" to see prediction results here.</p>
+        </div>
+
+        <div class="results-content" id="resultsContent" style="display:none">
+          <!-- Verdict -->
+          <div class="verdict-banner" id="verdictBanner">
+            <div class="verdict-left">
+              <div class="verdict-icon" id="verdictIcon"></div>
+              <div>
+                <div class="verdict-class" id="verdictClass"></div>
+                <div class="verdict-type"  id="verdictType"></div>
+              </div>
+            </div>
+            <div class="verdict-right">
+              <div class="conf-ring" id="confRing">
+                <svg viewBox="0 0 80 80">
+                  <circle cx="40" cy="40" r="35" class="ring-bg"/>
+                  <circle cx="40" cy="40" r="35" class="ring-fill" id="ringFill"/>
+                </svg>
+                <span id="confPct"></span>
+              </div>
+              <span class="conf-label">Confidence</span>
+            </div>
+          </div>
+
+          <!-- CT + Grad-CAM images -->
+          <div class="result-images">
+            <div class="result-img-box">
+              <div class="result-img-label"><i class="fas fa-image"></i> Original CT Scan</div>
+              <img id="origImg" alt="Original CT Scan"/>
+            </div>
+            <div class="result-img-box">
+              <div class="result-img-label"><i class="fas fa-fire-flame-curved"></i> Grad-CAM Feature Map</div>
+              <img id="gradImg" alt="Grad-CAM"/>
+            </div>
+          </div>
+
+          <!-- Probability bars -->
+          <div class="prob-section">
+            <h4><i class="fas fa-chart-bar"></i> Class Probability Distribution</h4>
+            <div id="probBars"></div>
+          </div>
+
+          <!-- Alert -->
+          <div id="alertBox" class="alert-box" style="display:none"></div>
+
+          <!-- Download -->
+          <button class="btn btn-primary btn-full" id="downloadBtn" style="margin-top:20px">
+            <i class="fas fa-file-pdf"></i> Download PDF Report
+          </button>
+        </div>
+
+        <!-- Loading overlay -->
+        <div class="loading-overlay" id="loadingOverlay" style="display:none">
+          <div class="spinner"></div>
+          <p>Analyzing CT scan with CNN…</p>
+        </div>
+      </div>
+    </div><!-- /pred-layout -->
+  </div>
+</section>
+
+<!-- ═══════════ ANALYTICS ═══════════ -->
+<section id="analytics" class="section analytics-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Performance Metrics</span>
+      <h2>System Analytics</h2>
+      <p>Real performance metrics from our trained EfficientNetB0 CNN model on a held-out test set.</p>
+    </div>
+
+    <div class="analytics-grid">
+      <div class="analytics-card primary">
+        <i class="fas fa-images"></i>
+        <div class="analytics-num">1,226</div>
+        <div class="analytics-label">Total CT Images</div>
+        <div class="analytics-sub">Train / Val / Test Split</div>
+      </div>
+      <div class="analytics-card success">
+        <i class="fas fa-bullseye"></i>
+        <div class="analytics-num">81.87%</div>
+        <div class="analytics-label">5-Class CNN Accuracy</div>
+        <div class="analytics-sub">On held-out test set</div>
+      </div>
+      <div class="analytics-card danger">
+        <i class="fas fa-heart-pulse"></i>
+        <div class="analytics-num">99.45%</div>
+        <div class="analytics-label">Binary Accuracy</div>
+        <div class="analytics-sub">Malignant vs Non-Malignant</div>
+      </div>
+      <div class="analytics-card warning">
+        <i class="fas fa-layer-group"></i>
+        <div class="analytics-num">5</div>
+        <div class="analytics-label">Cancer Classes</div>
+        <div class="analytics-sub">Detected by the CNN</div>
+      </div>
+    </div>
+
+    <div class="model-info-grid">
+      <div class="model-info-card">
+        <h3><i class="fas fa-microchip"></i> Model Architecture</h3>
+        <table class="info-table">
+          <tr><td>Base Model</td><td><b>EfficientNetB0</b></td></tr>
+          <tr><td>Input Size</td><td><b>224 × 224 × 3</b></td></tr>
+          <tr><td>Training Strategy</td><td><b>2-Phase Fine-tuning</b></td></tr>
+          <tr><td>Class Balancing</td><td><b>Class Weights Applied</b></td></tr>
+          <tr><td>Explainability</td><td><b>Grad-CAM</b></td></tr>
+          <tr><td>Confidence Threshold</td><td><b>60% (UNCERTAIN flag)</b></td></tr>
+          <tr><td>Framework</td><td><b>TensorFlow / Keras</b></td></tr>
+          <tr><td>Report Engine</td><td><b>ReportLab PDF</b></td></tr>
+        </table>
+      </div>
+      <div class="model-info-card">
+        <h3><i class="fas fa-database"></i> Dataset Distribution</h3>
+        <div class="dataset-bars">
+          <div class="ds-bar-item">
+            <span>Training</span>
+            <div class="ds-bar"><div class="ds-fill" style="width:70%">862 images (70%)</div></div>
+          </div>
+          <div class="ds-bar-item">
+            <span>Validation</span>
+            <div class="ds-bar"><div class="ds-fill" style="width:15%">182 images</div></div>
+          </div>
+          <div class="ds-bar-item">
+            <span>Test Set</span>
+            <div class="ds-bar"><div class="ds-fill" style="width:15%">182 images</div></div>
+          </div>
+        </div>
+        <p class="ds-note"><i class="fas fa-shield-halved"></i> Physically separated — zero data leakage guaranteed by <code>split_data.py</code>.</p>
+        <br/>
+        <h3 style="margin-bottom:14px"><i class="fas fa-tags"></i> Class Labels</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="background:#dcfce7;color:#16a34a;padding:4px 14px;border-radius:40px;font-size:0.8rem;font-weight:700">Normal</span>
+          <span style="background:#dcfce7;color:#16a34a;padding:4px 14px;border-radius:40px;font-size:0.8rem;font-weight:700">Benign</span>
+          <span style="background:#fee2e2;color:#dc2626;padding:4px 14px;border-radius:40px;font-size:0.8rem;font-weight:700">Adenocarcinoma</span>
+          <span style="background:#fee2e2;color:#dc2626;padding:4px 14px;border-radius:40px;font-size:0.8rem;font-weight:700">Large Cell</span>
+          <span style="background:#fee2e2;color:#dc2626;padding:4px 14px;border-radius:40px;font-size:0.8rem;font-weight:700">Squamous Cell</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CONTACT ═══════════ -->
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Get In Touch</span>
+      <h2>Contact Us</h2>
+      <p>Have questions about the LungCare AI system? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-graduation-cap"></i>
+          <div><strong>BE Final Year Project</strong><p>Computer Engineering — Capstone Research Project</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-book-medical"></i>
+          <div><strong>Research Purpose Only</strong><p>Educational AI prototype — not intended for clinical diagnosis.</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-code-branch"></i>
+          <div><strong>Technology Stack</strong><p>Python · TensorFlow · Flask · OpenCV · ReportLab · HTML/CSS/JS</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-brain"></i>
+          <div><strong>Model Architecture</strong><p>EfficientNetB0 CNN — 5-Class Lung Cancer CT Detection</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-triangle-exclamation"></i>
+          <div><strong>Medical Disclaimer</strong><p>Always consult a qualified radiologist or oncologist for medical decisions.</p></div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Your full name" required/>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="What is your question about?" required/>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="6" placeholder="Write your message here…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span><i class="fa-solid fa-lungs"></i> LungCare AI</span>
+      <p>An AI-powered lung CT classification research system built as a BE Final Year Project. Not intended for clinical diagnosis. Always consult a qualified medical professional.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Navigation</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#prediction">Prediction</a>
+      <a href="#analytics">Analytics</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-links">
+      <h4>Technology</h4>
+      <a href="#">EfficientNetB0 CNN</a>
+      <a href="#">Grad-CAM XAI</a>
+      <a href="#">Flask REST API</a>
+      <a href="#">ReportLab PDF</a>
+      <a href="#">TensorFlow / Keras</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 LungCare AI — BE Final Year Project. For educational &amp; research purposes only. Not for clinical use.</p>
+  </div>
+</footer>
+
+<script src="/static/main.js"></script>
+</body>
+</html>
